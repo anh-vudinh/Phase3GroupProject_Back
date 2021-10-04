@@ -1,4 +1,4 @@
-class GameController < ApplicationController
+class GamesController < ApplicationController
        
     get '/games' do
         Game.all.to_json
