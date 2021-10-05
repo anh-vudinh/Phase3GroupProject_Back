@@ -2,11 +2,9 @@ class UsersController < ApplicationController
 
     get '/users' do
         User.all.to_json
-        # binding.pry
     end
 
     patch '/users/:id' do
-        # binding.pry
         user = User.find(params[:id])
         user.update(params)
         user.to_json
@@ -17,9 +15,12 @@ class UsersController < ApplicationController
     end
     
     post '/users/login' do
-        fart = params
-    #    User.find_by(name: params[:name]).id
-    # binding.pry
+        # binding.pry
+        if User.find_by(name: params[:name].password.to_json == params[:password].to_json)
+            User.find_by(name: params[:name]).id.to_json 
+        else 
+            # 0.to_json
+        end
     end
-  
-  end
+
+end
