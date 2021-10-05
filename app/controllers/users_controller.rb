@@ -15,13 +15,13 @@ class UsersController < ApplicationController
     end
     
     post '/users/login' do
-        if User.find_by(name: params[:name]).password == params[:password]
+        # binding.pry
+        if User.find_by(name: params[:name]) == nil #no user
+            "b".to_json
+        elsif User.find_by(name: params[:name]).password != params[:password] #user exists but wrong password
+            "a".to_json
+        elsif User.find_by(name: params[:name]).password == params[:password] #user and password match
             User.find_by(name: params[:name]).id.to_json
-        else
-            binding.pry
         end
     end
-
-
-
 end
