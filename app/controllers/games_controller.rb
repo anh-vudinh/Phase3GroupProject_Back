@@ -1,10 +1,10 @@
 class GamesController < ApplicationController
 
-    get '/games' do
-        Game.all.to_json
+    post '/games/pageload' do
+        [Game.all, UserGameList.all.filter{|e| params[:id] == e.user_id}].to_json
     end
 
-    post '/games' do
+    post '/games/create' do
         Game.create(title: params[:title], genre: params[:genre], platform: params[:platform], game_played: false).to_json       
     end
 
@@ -14,7 +14,7 @@ class GamesController < ApplicationController
     end
 
     delete '/games/:id' do
-        Game.find(params[:id]).destroy    
+        Game.find(params[:id]).destroy
     end
 
 end

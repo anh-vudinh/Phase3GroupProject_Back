@@ -24,4 +24,9 @@ class UsersController < ApplicationController
             User.find_by(name: params[:name]).id.to_json
         end
     end
+
+    post '/users/:id/user_game_list' do
+        # binding.pry
+        UserGameList.create(params[:id], params{:game_id}).to_json
+    end
 end
