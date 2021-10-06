@@ -26,7 +26,14 @@ class UsersController < ApplicationController
     end
 
     post '/users/:id/user_game_list' do
-        # binding.pry
-        UserGameList.create(params[:id], params{:game_id}).to_json
+        UserGameList.create(user_id: params[:id], game_id: params[:game_id]).to_json
+    end
+
+    delete '/users/:id/user_game_list/:ugl_id' do
+        User.find_by(id: params[:id]).user_game_lists.find_by(id: params[:ugl_id]).destroy
+    end
+
+    get '/users/:id' do
+        User.find_by(id: params[:id]).games.to_json
     end
 end
