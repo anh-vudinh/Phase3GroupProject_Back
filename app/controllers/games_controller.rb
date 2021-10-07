@@ -4,8 +4,8 @@ class GamesController < ApplicationController
         [Game.all, UserGameList.all.filter{|e| params[:id] == e.user_id}].to_json
     end
 
-    post '/games/create' do
-        Game.create(title: params[:title], genre: params[:genre], platform: params[:platform], game_played: false).to_json       
+    post '/games/creategame' do
+        Game.create(title: params[:title], genre: params[:genre], platform: params[:platform], image: params[:image], game_played: false).to_json       
     end
 
     patch '/games/:id' do
