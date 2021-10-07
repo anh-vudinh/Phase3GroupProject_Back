@@ -14,8 +14,8 @@ class CreateTables < ActiveRecord::Migration[6.1]
     end
 
     create_table :user_game_lists do |t|
-       t.belongs_to :user
-       t.belongs_to :game
+      t.belongs_to :user
+      t.belongs_to :game
     end
   end
 

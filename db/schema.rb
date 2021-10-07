@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_04_205054) do
+ActiveRecord::Schema.define(version: 2021_10_06_230132) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.string "genre"
     t.string "platform"
     t.boolean "game_played"
+    t.string "image"
   end
 
   create_table "user_game_lists", force: :cascade do |t|
