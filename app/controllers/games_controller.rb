@@ -5,7 +5,11 @@ class GamesController < ApplicationController
     end
 
     post '/games/creategame' do
-        Game.create(title: params[:title], genre: params[:genre], platform: params[:platform], image: params[:image], game_played: false).to_json       
+        x = Game.create(title: params[:title], genre: params[:genre], platform: params[:platform], image: params[:image], game_played: false) #creates new game
+        
+        UserGameList.create(user_id: params[:user_id], game_id: x[:id]) #adds game directly to MyGames of session ID
+
+        x.to_json #converts to json to send back
     end
 
     patch '/games/:id' do
