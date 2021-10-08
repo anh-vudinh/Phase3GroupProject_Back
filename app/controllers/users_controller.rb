@@ -11,7 +11,11 @@ class UsersController < ApplicationController
     end
     
     post '/users/signup' do
-        User.create(name: params[:name], password: params[:password]).to_json
+        if (User.find_by(name: params[:name]) == nil) == false
+            User.create(name: params[:name], password: params[:password]).to_json 
+        elsif (User.find_by(name: params[:name]) == nil) == true
+            "c".to_json
+        end
     end
     
     post '/users/login' do
