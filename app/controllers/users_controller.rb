@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     post '/users/signup' do
         if User.find_by(name: params[:name]) == nil
             User.create(name: params[:name], password: params[:password]).to_json 
-        else
+        else 
             "c".to_json
         end
     end
