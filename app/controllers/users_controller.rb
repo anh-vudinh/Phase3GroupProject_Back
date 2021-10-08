@@ -11,15 +11,14 @@ class UsersController < ApplicationController
     end
     
     post '/users/signup' do
-        if (User.find_by(name: params[:name]) == nil) == false
+        if User.find_by(name: params[:name]) == nil
             User.create(name: params[:name], password: params[:password]).to_json 
-        elsif (User.find_by(name: params[:name]) == nil) == true
+        else
             "c".to_json
         end
     end
     
     post '/users/login' do
-        # binding.pry
         if User.find_by(name: params[:name]) == nil #no user
             "b".to_json
         elsif User.find_by(name: params[:name]).password != params[:password] #user exists but wrong password
