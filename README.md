@@ -1,5 +1,3 @@
-# Phase 3 Project Guidelines
-
 ## Learning Goals
 
 - Build a web basic API with Sinatra and Active Record to support a React
@@ -7,38 +5,15 @@
 
 ## Introduction
 
-Congrats on getting through all the material for Phase 3! Now's the time to put
-it all together and build something from scratch to reinforce what you know and
-expand your horizons.
-
 The focus of this project is **building a Sinatra API backend** that uses
-**Active Record** to access and persist data in a database, which will be used
-by a separate **React frontend** that interacts with the database via the API.
+**Active Record** to access and persist data in a database, which will be used by a separate **React frontend** that interacts with the database via the API.
 
 ## Requirements
-
-For this project, you must:
-
 - Use Active Record to interact with a database.
 - Have a minimum of two models with a one-to-many relationship.
-- Create API routes in Sinatra that handles at least three different CRUD
-  actions for at least one of your Active Record models.
-- Build a separate React frontend application that interacts with the API to
-  perform CRUD actions.
-- Use good OO design patterns. You should have separate classes for each of your
-  models, and create instance and class methods as necessary.
-
-For example, build a todo list application with a React frontend interface and a
-Sinatra backend API, where a user can:
-
-- **Create** a new todo
-- **Read** a list of all todos
-- **Update** an individual todo
-- **Delete** a todo
-
-A `Todo` can be tagged with a `Category`, so that each todo _belongs to_ a
-category and each category _has many_ todos.
-
+- Create API routes in Sinatra that handles at least three different CRUD actions for at least one of your Active Record models.
+- Build a separate React frontend application that interacts with the API to perform CRUD actions.
+- Use good OO design patterns. You should have separate classes for each of your models, and create instance and class methods as necessary.
 ## Getting Started
 
 ### Backend Setup
@@ -76,18 +51,6 @@ $ npx create-react-app my-app-frontend
 After creating the project locally, you should also
 [create a repository on GitHub][create repo] to host your repo and help
 collaborate, if you're working with a partner.
-
-### Fetch Example
-
-Your React app should make fetch requests to your Sinatra backend! Here's an
-example:
-
-```js
-fetch("http://localhost:9292/test")
-  .then((r) => r.json())
-  .then((data) => console.log(data));
-```
-
 ## Project Tips
 
 - This project is intended to focus more on the backend than the frontend, so
